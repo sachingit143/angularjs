@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h3>
+		<center>
+			<u>Person Web</u>
+		</center>
+	</h3>
+	<style>
+img {
+	height: 300px;
+	width: 300px;
+	border: 2px solid blue;
+	padding: 2px;
+}
+
+.c1 {
+	text-align: center;
+	width: 400px;
+	float: left;
+	margin: 5px;
+	border: 2px solid blue;
+	padding: 2px;
+}
+</style>
+	<hr />
+	<div ng-controller="myController">
+		Sorted By:<div>
+		   <a href="#" ng-click="x='pid';o=!o;">By PersonId</a> 
+		   <a href="#" ng-click="x='pname';o=!o;">By PersonName</a> 
+		  <a href="#" ng-click="x='age';o=!o;">By City</a>
+		  </div>
+		<div class="c1" ng-repeat="photos in pic|orderBy:x:o">
+			<img src="Images/{{photos.imge}}" /> 
+			<span align="center">{{photos.pid}}</span> 
+			<span align="center">{{photos.imge}}</span>
+			 <span>{{photos.pname}}</span> 
+			 <span>{{photos.age}}</span>
+			<span>{{photos.city}}</span>
+		</div>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope) {
+			$scope.x = "pid";
+			$scope.o = false;
+
+			$scope.pic = [ {
+				pid : 1453,
+				pname : "Saroj",
+				imge :"img1.jpg",
+				age : 23,
+				city : "Berhampur"
+			}, {
+				pid : 1234,
+				pname : "Samir",
+				imge : "img2.jpg",
+				age : 23,
+				city : "Badachana"
+			}, {
+				pid : 1897,
+				pname : "Ashis",
+				imge : "img3.jpg",
+				age : 23,
+				city : "Chikiti"
+			}, {
+				pid : 1453,
+				pname : "Swaroop",
+				imge : "img4.jpg",
+				age : 23,
+				city : "Sambalpur"
+			}, {
+				pid : 1342,
+				pname : "Sandeep",
+				imge : "img5.jpg",
+				age : 23,
+				city : "Balesor"
+			}, {
+				pid : 1078,
+				pname : "Loka",
+				imge : "img6.jpg",
+				age : 23,
+				city : "Puri"
+			} ];
+		});
+	</script>
+	
+</body>
+</html>

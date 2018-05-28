@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+</head>
+<body ng-app="myapp" bgcolor="red;">
+	<h2>
+		<u><center>Employee Table By Using Filter Concept</center></u>
+	</h2>
+	<div ng-controller="myController">
+		Select Sort Item: <select ng-model="x">
+			<option>empno</option>
+			<option>ename</option>
+			<option>sal</option>
+		</select> <br>
+		<table border="2" height="200" width="300">
+			<tr>
+				<th style="color:white;"><a href="#" ng-click="x='empno';o=!o;">Emp No</a></th>
+				<th><a href="#" ng-click="y='ename';o=!o;">Emp Name</a></th>
+				<th><a href="#" ng-click="k='job';o=!o;">Job</a></th>
+			<th><a href="#" ng-click="z='sal';o=!o;">Salary</a></th>
+			</tr>
+			<tr ng-repeat="item in ar|orderBy:x:o">
+				<td>{{item.empno}}</td>
+				<td>{{item.ename}}</td>
+				<td>{{item.job}}</td>
+				<td>{{item.sal| currency: "&#8377;"}}</td>
+			</tr>
+		</table>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myapp', []);
+		app.controller('myController', function($scope) {
+		$scope.x="empno";
+		$scope.y="ename";
+		$scope.z="sal";
+		$scope.k="job";
+		$scope.o=false;
+			$scope.ar = [ {
+				empno : 1024,
+				ename : "Lokanath",
+				job : "Developer",
+				sal : 30000
+			}, {
+				empno : 1023,
+				ename : "Sainath",
+				job : "Tester",
+				sal : 25000
+			}, {
+				empno : 1029,
+				ename : "Jagaanath",
+				job : "Analyst",
+				sal : 15000
+			}, {
+				empno : 1021,
+				ename : "Harinath",
+				job : "Designer",
+				sal : 20000
+			}, {
+				empno : 1030,
+				ename : "Biswanath",
+				job : "Manager",
+				sal : 50000
+			}];
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h3>
+		<center>Validation</center>
+	</h3>
+	<style>
+.c1 {
+	color: red;
+}
+</style>
+	<div ng-controller="myController">
+		<form name="f1" novalidate>
+
+			First Name:<input name="t1" ng-model="fname" ng-required="true" /> <span
+				class="c1" ng-show="f1.t1.$error.required && f1.t1.$dirty">
+				First Name Is Required </span></br> Last Name:<input name="t2" ng-model="lname"
+				ng-required="true" /> <span class="c1"
+				ng-show="f1.t2.$error.required && f1.t2.$dirty"> First Name
+				is Required </span></br> City:<input name="t3" ng-model="city" ng-minlength="3"
+				ng-maxlength="5" /> <span class="c1"
+				ng-show="f1.t3.$error.minlength && f1.t3.$dirty"> City name
+				should be minimum 3 charecter </span> <span class="c1"
+				ng-show="f1.t3.$error.maxlength && f1.t3.$dirty"> City name
+				should be maximum 5 charecter </span></br> Email:<input name="t4"
+				ng-model="email" type="email" /> <span class="c1"
+				ng-show="f1.t4.$error.email && f1.t4.$dirty"> Give a Valid
+				email </span></br> Pincode::<input name="t5" ng-model="pincode"
+				ng-pattern="/^\d{6}$/" /> <span class="c1"
+				ng-show="f1.t5.$error.pattern && f1.t5.$dirty"> Give Proper
+				Pincode(6 digit) </span></br> <input type="submit" value="submit"
+				ng-disabled="f1.$invalid" /> 
+				
+				<input type="text" ng-model="message" />
+				</label>
+			<button ng-click="$log.log(message)">log</button>
+		</form>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("myApp", []).controller("myController",['$scope', '$log',
+				function($scope, $log) {
+					$scope.fname = "";
+					$scope.lname = "";
+					$scope.city = "";
+					$scope.email = "";
+					$scope.pincode = "";
+					$scope.$log = $log;
+					$scope.message = 'Hello World!';
+				}]);
+	</script>
+</body>
+</html>

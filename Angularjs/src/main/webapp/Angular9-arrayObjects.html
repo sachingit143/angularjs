@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<h3>
+	<center>Arrray Of Objects Program</center>
+</h3>
+<body ng-app="myApp">
+	<hr />
+	<div ng-controller="myController">
+		<p style="color: red;">
+		<ol style="color: blue;">
+			hey!!!
+			<li ng-repeat="x in students"><span
+				style="color: green; font-weight: bold;"> {{x.sname}} </span> now in
+				<span
+				style="color: green; font-weight: bold; text-decoration: underline;">
+					{{x.course}} </span"> and rank is <span
+				style="color: red; font-style: italic;">{{$index+7}}</span></li>
+		</ol>
+		</p>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope) {
+			$scope.students = [ {
+				sname : "loka",
+				course : "JAVA"
+			}, {
+				sname : "Jack",
+				course : "phthon"
+			} ];
+		});
+	</script>
+</body>
+</html>

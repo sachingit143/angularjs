@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h2>
+		<center>
+			<u>Event In angularJs</u>
+		</center>
+	</h2>
+	</hr>
+	<div ng-controller="myController">
+		Student Name:<input ng-model="uname" /></br> <input type="button"
+			value="submit" ng-click="value()" />
+		<h3>{{str}}</h3>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope) {
+			$scope.uname = "";
+			$scope.str = "";
+			$scope.value = function() {
+				$scope.str = "angular js of " + $scope.uname
+						+ " is continuing to read";
+			};
+		});
+	</script>
+</body>
+</html>

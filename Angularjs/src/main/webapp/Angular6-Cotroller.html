@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div ng-app="module" ng-controller="studentctrl">
+		<ul>
+			<li ng-repeat="student in names">
+				{{student.stname1+','+student.result}}</li>
+		</ul>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+var app=angular.module('module',[]);
+app.controller('studentctrl',function($scope){
+$scope.names=[{stname1:'loka',result:345}
+               {stname1:'hari',result:345}
+            {stname1:'sinu',result:345} ];
+            });
+</script>
+</body>
+</html>

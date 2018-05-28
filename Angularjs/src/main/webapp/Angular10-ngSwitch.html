@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp" bgcolor="lightgreen">
+<style>
+.c1 {
+	text-align: center;
+	width: 100px;
+	float: left;
+	margin: 2px;
+	border: 2px solid blue;
+	border-radius: 8px;
+	padding:2px;
+}
+</style>
+	<h2 style="color:red;">By using ng-switch,ng-when and ng-default</h2>
+	<div ng-controller="myController">
+		select Display mode: <select ng-model="x">
+			<option>List</option>
+			<option>Table</option>
+			<option>Custom</option>
+		</select><br>
+<!-- <button type="button"  ng-model="x">Click</button> -->
+		<div ng-switch="x">
+			<div ng-switch-when="List">
+				<ol>
+				<li ng-repeat="item in con">
+				yes..
+				{{item.country}}'s capital is
+				{{item.capital}}
+				</li>
+				</ol>
+				</ol>
+			</div>
+			<div ng-switch-when="Table">
+				<table height="200" width="300" border="2" >
+				<tr>
+				<th style="color:">SL.no</th>
+				<th>Country Name</th>
+				<th>Capital name</th>
+				</tr>
+				<tr ng-repeat="item in con">
+				<td>
+				{{$index+1}}
+				</td>
+				<td>
+				{{item.country}}
+				</td>
+				<td>
+				{{item.capital}}
+				</td>
+				</tr>
+				</table>
+			</div>
+			
+			<div ng-switch-when="Custom">
+				<div class="c1" ng-repeat="item in con">
+				{{item.country}}<br>
+				{{item.capital}}
+				</div>
+			</div>
+<div ng-switch-default>
+<p>Its a default mssage..</p>
+</div>
+		</div>
+
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope) {
+			$scope.con = [ {
+				country : "India",
+				capital : "New Delhi"
+			}, {
+				country : "USA",
+				capital : "canada"
+			} ];
+		});
+	</script>
+</body>
+</html>

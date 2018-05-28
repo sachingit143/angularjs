@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+img {
+	height:300px;
+	width:200px;
+	border:2px solid blue;
+	padding:2px;
+}
+
+.c1 {
+	text-align: center;
+	width: 400px;
+	float: left;
+	margin: 5px;
+	border: 2px solid blue;
+	padding:2px;
+}
+</style>
+</head>
+
+<body ng-app="">
+	<h2>
+		<center>Image place in Box Format</center>
+	</h2>
+	<hr/>
+	<div
+		ng-init="ar=['img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg','img6.jpg']">
+		<div class="c1" ng-repeat="photos in ar">
+			<img src="Images/{{photos}}" /> <br/> <span>{{photos}}</span>
+		</div>
+	</div>
+	<script src="angular.js"></script>
+</body>
+</html>

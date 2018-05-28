@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h3>Student details</h3>
+	<hr/>
+	<div ng-controller="myController">
+		<p>Student Id:{{sid}} ;Student Name:{{sname}};</p>
+		</hr>
+		<ul>
+			<li ng-repeat="item in course">{{item}}</li>
+		</ul>
+		<hr />
+		<p>Dept no:{{stobj.deptno}}; Dept name:{{stobj.dname}};
+			Location:{{stobj.loc}};<br/></p>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+var app=angular.module('myApp',[]);
+app.controller("myController",function($scope)
+{
+$scope.sid=1;
+$scope.sname="Lokanath";
+&scope.course={"java","python",".Net"};
+$scope.stobj={deptno:10,dname:'NIT',loc:'hyd'};
+});
+</script>
+</body>
+</html>

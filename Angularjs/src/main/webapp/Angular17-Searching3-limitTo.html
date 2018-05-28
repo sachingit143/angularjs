@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h2>
+		<center>
+			<u>Searching Images Concept By Using Filter Concept </u>
+		</center>
+	</h2>
+	<hr/>
+	<div ng-controller="myController">
+
+		<table border="2" width="200" height="200">
+			<tr>
+				<th>Enter product Name<input type="text"
+					ng-model="object.pname"></th>
+				<th>Choose Brand<select ng-model="object.brand">
+						<option value="">All Brand</option>
+						<option>canon</option>
+						<option>Micromax</option>
+						<option>lenovo</option>
+				</select>
+				</th>
+			
+			</tr>
+
+			<tr>
+			<th>SL no.</th>
+				<th><a href="#" ng-click="x='pname';o=!o;">Product Name</a></th>
+				<th><a href="#" ng-click="x='brand';o=!o;">Brand</a></th>
+				<th><a href="#" ng-click="x='price';o=!o;">Price</a></th>
+				<th>Picture</th>
+			</tr>
+			<tr ng-repeat="item in camera | filter:object|orderBy:x:o|limitTo:count">
+				<td>{{$index+1}}</td>
+				<td>{{item.pname}}</td>
+				<td>{{item.brand}}</td>
+				<td>{{item.price|currency: "&#8377;"}}</td>
+				<td><img ng-src="Images/{{item.imge}}" height="100" width="100"/></td>
+			</tr>
+		</table>
+		</hr>
+		More Details Of record:<select ng-model="count">
+		<option>3</option>
+		<option>5</option>
+		<option>8</option>
+		</select><br>
+		Enter The no of Record You Hv to show:<input type="text" ng-model="count"/><br>
+		<input type="button" ng-click=" " value="Show_All_Details"/>
+		
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope) {
+			$scope.object = {
+				pname: "",
+				brand : "",
+				price:""
+			};
+			$scope.x="pname";
+			$scope.o=false;
+			$scope.count="";
+            $scope.camera=[{pname:"canon2AltraVolt",brand:"canon",price:2400,imge:"img1.jpg"},
+                            {pname:"canonExtream",brand:"canon",price:5390,imge:"img2.jpg"},
+                            {pname:"Micromaxpix24",brand:"Micromax",price:4400,imge:"img3.jpg"},
+                            {pname:"MicroSencix",brand:"Micromax",price:4200,imge:"img4.jpg"},
+                            {pname:"canonsemt56",brand:"canon",price:5100,imge:"img5.jpg"},
+                            {pname:"LnovoExtraShot",brand:"lenovo",price:2000,imge:"img6.jpg"}
+                            ];
+		});
+	</script>
+</body>
+</html>

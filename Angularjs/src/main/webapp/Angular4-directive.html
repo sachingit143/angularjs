@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="">
+	<h2>
+		<center>
+			<u>Scintist Name</u>
+		</center>
+	</h2>
+	<div ng-init="ar=['Newton','Abdul Kalam','Jingle Bell','Graham Bell']">
+		<ol>
+			<li ng-repeat="x in ar">{{x}}</li>
+		</ol>
+	</div>
+	<script src="angular.js"></script>
+</body>
+</html>

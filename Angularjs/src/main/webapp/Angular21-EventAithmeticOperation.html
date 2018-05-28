@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h2>
+		<center>
+			<u>Arithmetic Operation</u>
+		</center>
+	</h2>
+	<div ng-controller="myController">
+		Enter The First No:<input ng-model="fno" />ll<br>
+		 Enter The Second No:<input ng-model="sno" /> <br> 
+		 <input type="button" value="sum" ng-click="f1()" /> 
+		<input type="button" value="sub" ng-click="f2()" />
+		<input type="button" value="mult" ng-click="f3()" /> 
+		<input type="button" value="div" ng-click="f4()" /><br>
+		<h3>{{sum}}</h3>
+		<h3>{{sub}}</h3>
+		<h3>{{mult}}</h3>
+		<h3>{{div}}</h3>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+var app= angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.fno="";
+$scope.sno="";
+$scope.sum="";
+$scope.sub="";
+$scope.mult="";
+$scope.div="";
+$scope.f1=function(){
+$scope.sum=parseInt($scope.fno+$scope.sno);
+};
+$scope.f2=function(){
+$scope.sub=$scope.fno-$scope.sno;
+};
+$scope.f3=function(){
+$scope.mult=$scope.fno*$scope.sno;
+};
+$scope.f4=function(){
+$scope.div=$scope.fno/$scope.sno;
+};
+});
+</script>
+</body>
+</html>

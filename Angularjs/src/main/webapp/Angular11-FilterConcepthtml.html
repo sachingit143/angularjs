@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="angular.js"></script>
+</head>
+<body ng-app="myapp" bgcolor="deep blue;">
+	<h2>
+		<u><center>Employee Table By Using Filter Concept</center></u>
+	</h2>
+	<div ng-controller="myController">
+		Select Sort Item: <select ng-model="x">
+			<option>empno</option>
+			<option>ename</option>
+			<option>sal</option>
+		</select> <br>
+		Do You Want For Descending Order<input type="checkbox" ng_model="o">
+		<table border="2" height="200" width="300">
+			<tr>
+				<th>Emp No</th>
+				<th>Emp Name</th>
+				<th>job</th>
+				<th>Salary</th>
+			</tr>
+			<tr ng-repeat="item in ar|orderBy:x:o">
+				<td>{{item.empno}}</td>
+				<td>{{item.ename}}</td>
+				<td>{{item.job}}</td>
+				<td>{{item.sal| currency: "&#8377;"}}</td>
+			</tr>
+		</table>
+	</div>
+	
+	<script>
+		var app = angular.module('myapp', []);
+		app.controller('myController', function($scope) {
+		$scope.x="empno";
+		$scope.y="ename";
+		$scope.z="sal";
+		$scope.o=false;
+			$scope.ar = [ {
+				empno : 1024,
+				ename : "Lokanath",
+				job : "Developer",
+				sal : 30000
+			}, {
+				empno : 1023,
+				ename : "Sainath",
+				job : "Tester",
+				sal : 25000
+			}, {
+				empno : 1029,
+				ename : "Jagaanath",
+				job : "Analyst",
+				sal : 15000
+			}, {
+				empno : 1021,
+				ename : "Hemanath",
+				job : "Designer",
+				sal : 20000
+			}, {
+				empno : 1030,
+				ename : "Biswanath",
+				job : "Manager",
+				sal : 50000
+			}];
+		});
+	</script>
+</body>
+</html>

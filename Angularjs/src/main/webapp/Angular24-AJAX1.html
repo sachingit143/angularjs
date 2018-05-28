@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+<h2><center><u>Ajax program Link With Database</u></center></h2>
+</hr>
+<div ng-controller="mycontroller" >
+<input type="button" ng-click="f1()" value="submit">
+<table border="2" width="200" height="200"></br>
+<tr>
+<th>Dept no</th>
+<th>Emp Name</th>
+<th>Salary</th>
+</tr>
+<tr ng-repeat="item in deptResults">
+				<td>{{item.deptno}}</td>
+				<td>{{item.empname}}</td>
+				<td>{{item.sal| currency: "&#8377;"}}</td>
+			</tr>
+</table>
+</div>
+<script src="angular.js"></script>
+
+<script>
+var app=angular.module("myApp",[]);
+app.controller("mycontroller",function($scope,$http){
+$scope.deptResults=[];
+$scope.f1=function(){
+$http({
+url:"DeptDetails.jsp",
+method:"POST",
+data:"",
+headers:
+{
+"Content-Type":"application/json"
+}
+})//$http
+.then(function(response){
+
+$scope.deptResults=response.data;
+});
+};
+
+});
+</script>
+</body>
+</html>

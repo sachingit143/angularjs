@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body style="border:2px solid Violet;" bgcolor="#E6E6FA"  ng-app="">
+	<h2 style="color:DodgerBlue;" bgcolor="pink">
+		<u><center>ng-model derective using in Ajs Table Format</center></u>
+	</h2>
+	</hr>
+	<div ng-init="x='white'">
+		Select Color:<select ng-model="x">
+			<option>white</option>
+			<option>green</option>
+			<option>red</option>
+			<option>blue</option>
+		</select> </br>
+
+		<table height="200" width="300" bgcolor="{{x}}" border="2"
+			cellspacing="3">
+			<tr>
+				<th>Emp Id</th>
+				<th>Emp Name</th>
+				<th>Emp Sal</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>Lokanath</td>
+				<td>3.2LPA</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>James</td>
+				<td>4.2LPA</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Nikolai</td>
+				<td>3.1LPA</td>
+			</tr>
+		</table>
+	</div>
+	<script
+		src="angular.js"></script>
+</body>
+</html>

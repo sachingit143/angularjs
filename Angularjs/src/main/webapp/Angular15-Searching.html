@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h2>
+		<center>
+			<u>Searching Concept By Using Filter Concept</u>
+		</center>
+	</h2>
+	<hr />
+	<div ng-controller="myController">
+		Search_By_Student:<input type="text" ng-model="object.sname" />
+		Search_By_Course:<input type="text" ng-model="object.course" /> <br>
+		Search_By_Course:<select ng-model="object.course">
+			<option value="">AllCourses</option>
+			<option>java</option>
+			<option>Html</option>
+			<option>.Net</option>
+		</select>
+		<table border="2" width="200" height="200">
+			<tr>
+				<th>Sl.no</th>
+				<th>Student Name</th>
+				<th>Course</th>
+			</tr>
+			<tr ng-repeat="item in student| filter:object">
+				<td>{{$index+1}}</td>
+				<td>{{item.sname}}</td>
+				<td>{{item.course}}</td>
+			</tr>
+		</table>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myController', function($scope) {
+			$scope.object = {
+				sname : "",
+				course : ""
+			};
+			$scope.student = [ {
+				sname : "Loka",
+				course : "java"
+			}, {
+				sname : "jacky",
+				course : "php"
+			}, {
+				sname : "surya",
+				course : "Html"
+			}, {
+				sname : "Simons",
+				course : "C++"
+			}, {
+				sname : "charly",
+				course : "Hadoop"
+			}, {
+				sname : "simmy",
+				course : ".Net"
+			}, {
+				sname : "sycho",
+				course : ".Net"
+			}, {
+				sname : "simmy",
+				course : "java"
+			} ];
+		});
+	</script>
+</body>
+</html>

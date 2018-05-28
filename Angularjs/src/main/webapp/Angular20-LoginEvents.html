@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<h2>
+		<center>
+			<u>Event In angularJs</u>
+		</center>
+	</h2>
+	</hr>
+	<div ng-controller="myController">
+		Uesr Name:<input ng-model="uname" /></br> Password:<input ng-model="pwd" /></br>
+		<input type="button" value="submit" ng-click="value()" />
+		<h3>{{str}}</h3>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myController", function($scope) {
+			$scope.uname = "";
+			$scope.pwd = "";
+			$scope.str = "";
+			$scope.value = function() {
+				if ($scope.uname == "admin" && $scope.pwd == "dmpuchna")
+					$scope.str = "valid User";
+				else
+					$scope.str = "invalid user";
+			};
+		});
+	</script>
+</body>
+</html>

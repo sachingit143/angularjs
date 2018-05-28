@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="">
+	<h2 style="color: DodgerBlue;">
+		<center>
+			<u>5 Powrful Country List</u>
+		</center>
+	</h2>
+	<div ng-init="ar=['USA','Japan','Rusia','China','India']">
+		<table bgcolor="green" height="200" width="300" border="2"
+			cellspacing="2">
+			<tr>
+				<th style="color: red;">no. of Country</th>
+				<th style="color: red;">Country Name</th>
+				<th style="color: red;">Language</th>
+			</tr>
+			<tr ng-repeat="country in ar">
+				<td style="color: pink">{{$index+1}}</td>
+				<td style="color: pink">{{country}}</td>
+				<td  style="color: pink">{{language}}</td>
+				
+			</tr>
+			
+		</table>
+	</div>
+	<script src="angular.js"></script>
+</body>
+</html>
